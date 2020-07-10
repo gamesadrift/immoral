@@ -1,19 +1,25 @@
 ﻿using UnityEngine;
 
+// Clase para elementos que solo dan puntos una vez
+// Al bueno o malo si las activa primero.
 public class OneTimeElement : Element
 {
-    float time;
-    bool activated;
-    bool destroyed;
+    // Variables sobre puntuaciones que da.
+    public float destroyTime;  // Tiempo de invulnerabilidad  
+    public int score;          // Puntuación.
 
-    public GameObject good;
-    public GameObject bad;
+    // Detalles visuales para interacciones.
+    public GameObject good; // Buena.
+    public GameObject bad;  // Mala.
 
-    public float destroyTime;
-    public int score;
+    // Varibles para el estado del elemento.
+    float time;         // Tiempo activo.
+    bool activated;     // Activo.
+    bool destroyed;     // Destruido.
 
     void Start()
     {
+        // Empieza con tiempo a cero, sin activar ni destruir.
         time = 0;
         destroyed = false;
         activated = false;
@@ -21,9 +27,11 @@ public class OneTimeElement : Element
 
     void Update()
     {
+        // Si se activa avanza su tiempo.
         if (activated)
             time += Time.deltaTime;
 
+        // Si no esta destruida y el tiempo supera el destroy, la destruye.
         if (!destroyed && time > destroyTime)
         {
             Delete(1);
@@ -31,23 +39,32 @@ public class OneTimeElement : Element
         }
     }
 
+    // Interacciones de un Element
+
+    // Bueno
+    public override void InteractionGood()
+    {
+        // Si no está activada.
+        if (!activated)
+        {
+            // Se activa.
+            activated = true;
+            // Detalle visual.
+            Instantiate(good, transform);
+            // Da puntos al bueno.
+            Score(true, score);
+        }
+    }
+
+    // Malo
     public override void InteractionBad()
     {
+        // Similar pero puntos para el malo.
         if (!activated)
         {
             activated = true;
             Instantiate(bad, transform);
             Score(false, score);
-        }
-    }
-
-    public override void InteractionGood()
-    {
-        if (!activated)
-        {
-            activated = true;
-            Instantiate(good, transform);
-            Score(true, score);
         }
     }
 }

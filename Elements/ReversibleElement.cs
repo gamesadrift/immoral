@@ -1,32 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Clase para objeto reversible.
+// -> Aparece en un estado (versión).
+// -> Da puntos (cada vez menos) cada vez que cambia.
+// -> Al dar el minimo (1) desaparece.
 public class ReversibleElement : Element
 {
-    [SerializeField] bool activeGood;
+    // Variable para el estado del elemento.
+    [SerializeField] bool activeGood; // ¿Empieza en la versión buena?
 
-    public GameObject good;
-    public GameObject bad;
-    public int score;
-
+    // Detalles visuales
+    public GameObject good;     // Versión buena.
+    public GameObject bad;      // Versión mala.
     GameObject created;
+
+    // Variable sobre puntuación.
+    public int score;
 
     void Start()
     {
-        if (activeGood)
-            created = Instantiate(good, transform);
-        else
-            created = Instantiate(bad, transform);
+        // Si empieza para el malo instanciamos la buena...
+        if (activeGood) created = Instantiate(good, transform);
+        // y viceversa.
+        else created = Instantiate(bad, transform);
     }
+   
     void Update()
     {
-        if (score == 0)
-            Delete(1);
+        // Si va a dar 0 puntos se destruye.
+        if (score == 0)  Delete(1);
     }
 
+    // Interacciones de un Element:
+
+    // Bueno.
+    public override void InteractionGood()
+    {
+        // Estaba activa la versión mala.
+        if (!activeGood)
+        {
+            // Activamos la buena.
+            activeGood = true;
+            // Borramos la mala.
+            DeleteCreated();
+            // Creamos la buena.
+            created = Instantiate(good, transform);
+            // Sumamos al bueno.
+            Score(true, score);
+            // Reducimos la puntuación del siguiente.
+            score /= 2;
+        }
+    }
+
+    // Malo.
     public override void InteractionBad()
     {
+        // Similar pero para el malo.
         if (activeGood)
         {
             activeGood = false;
@@ -37,18 +66,7 @@ public class ReversibleElement : Element
         }
     }
 
-    public override void InteractionGood()
-    {
-        if (!activeGood)
-        {
-            activeGood = true;
-            DeleteCreated();
-            created = Instantiate(good, transform);
-            Score(true, score);
-            score /= 2;
-        }
-    }
-
+    // Borra la versión actual, con animación.
     void DeleteCreated()
     {
         created.GetComponent<Animator>().SetTrigger("destroy");
