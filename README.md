@@ -1,6 +1,6 @@
 # (IM)MORAL
 
-- (ES) Español:
+## (ES) Español:
 
 (IM)MORAL es un juego competitivo, que puede parecer rápido y caótico al principio pero en el que, con estrategia se puede ganar cualquier partida.
 
@@ -8,7 +8,7 @@ La temática del juego es la conservación de espacios, ya sean naturales o urba
 
 En este repositorio se encuentran el código utilizado en nuestro juego.
 
--(EN) English:
+## (EN) English:
 
 (IM) MORAL is a competitive game, which may seem fast and chaotic at first but in which, with strategy, you can win any game.
 
