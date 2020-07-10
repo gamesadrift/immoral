@@ -1,26 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// Texto flotante para puntuación.
 public class FloatingText : MonoBehaviour
 {
+    // Tiempo que tarda en destruirse.
     public float destroyTime;
 
+    // Colores.
     public Color goodColor;
     public Color badColor;
 
+    // Sonidos.
     public AudioSource goodSound;
     public AudioSource badSound;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, destroyTime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Se autodestruye al pasar el tiempo.
+    void Start() => Destroy(gameObject, destroyTime);
 }
