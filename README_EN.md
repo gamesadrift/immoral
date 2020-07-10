@@ -13,6 +13,12 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 >
 > In this repository are the scripts used in our game (or you can download it from our [***itch.io***](https://gamesadrift.itch.io/)).
 
+### Goal
+
+> The goal is easy, both players have three minutes to interact with the stage they are playing in (currently forest or city).
+> Interacting with the elements gives points (depending on the element).
+> When the time is up the one with more points wins.
+
 ### Controls
 
 > #### Movement
@@ -20,6 +26,23 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 
 > #### Interact
 > The space bar is useful when we are close to an interactive object, to earn points from it (see the elements).
+
+### Objects
+
+> #### Elements
+> - Asymmetric: a player can activate it to earn points over time, but if activated the opponent can destroy it to earn points.
+> - Progressive: if a player activates it, begins to level up and generate points (according to the level), but if the opponent interacts with it, the other returns to the first level and the other begins to earn points. If it reaches the maximum level it gives a lot of points and disappears.
+> - OneTime: it can only be activated once, the one that activates it first will get points.
+> - Reversible: it starts from one side, if the other activates it, it earns points but changes sides, it gives less and less until it disappears.
+
+> #### Examples (Forest)
+> - Asymmetric: the bonfire is activated by Jonas, but Bernie can destroy it if it is lit.
+> - Progressive: the tree generates more and more fruit if activated by Bernie or burns more and more if activated by Jonas.
+> - OneTime: flowers can be watered by Bernie or burned by Jonas.
+> - Reversible: garbage can be collected (inside the container) if Bernie has touched it or scattered if Jonas has done it.
+
+> #### Potions
+> There are currently two: yellow to run and blue to earn double points for a time.
 
 ### Contact
 
