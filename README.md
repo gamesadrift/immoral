@@ -44,6 +44,10 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 > #### Pociones
 > Actualmente hay dos: amarilla para correr y azul para ganar el doble de puntos durante un tiempo.
 
+### Código
+
+> Como dijimos antes, el código se encuentra en nuestro repositorio de GitHub (el botón de arriba del todo debería llevarte ;D). El código está comentado en español pero para los nombres de variables o funciones hemos utilizado inglés. Si esto es un impedimento puedes intentar utilizar un traductor o contactarnos con alguno de los enlaces del siguiente apartado.
+
 ### Contacto
 
 > #### Itch.io
