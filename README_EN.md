@@ -1,6 +1,6 @@
 # (IM)MORAL
 
-![Logo Games Adrift](/Images_Web/Games Adrift Logo.png)
+![Logo Games Adrift](/Images_Web/GALogo.png)
 
 ## (EN) English
 This is the English page. But we also have one in [Spanish](https://gamesadrift.github.io/immoral/)!
