@@ -20,7 +20,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     private bool connecting = false;
 
     // Configuracion, version y jugadores por sala.
-    private const string version = "0.2";
+    private const string version = "1.0";
     private const int MaxPlayersInRoom = 2;
 
     // Variables para control.
