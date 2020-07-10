@@ -42,7 +42,11 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 > - Reversible: garbage can be collected (inside the container) if Bernie has touched it or scattered if Jonas has done it.
 
 > #### Potions
-> There are currently two: yellow to run and blue to earn double points for a time.
+> There are currently two: yellow to run and blue to earn double points for a while.
+
+### Code
+
+> As stated before, the code can be found in our GitHub page (check the button at the top ;D). It has comments in Spanish but the actual code uses English (for example, the variable names, functions, ...) so you can follow it too. If it is still hard for you to understand it you can also try using a translator for the comments or contact us using one of the links down below.
 
 ### Contact
 
