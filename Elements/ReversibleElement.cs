@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReversibleElement : Element
 {
-    bool activeGood;
+    [SerializeField] bool activeGood;
 
     public GameObject good;
     public GameObject bad;
@@ -12,19 +12,13 @@ public class ReversibleElement : Element
 
     GameObject created;
 
-    
-
-    // Start is called before the first frame update
     void Start()
     {
-        activeGood = Random.Range(0,2) == 1;
         if (activeGood)
             created = Instantiate(good, transform);
         else
             created = Instantiate(bad, transform);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (score == 0)

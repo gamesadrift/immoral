@@ -1,15 +1,14 @@
-﻿using System.Security.Cryptography;
+﻿using Photon.Pun;
 using UnityEngine;
 
 public abstract class Element : MonoBehaviour
 {
-    public float scoreUp;
-    public float scoreFront;
+    [SerializeField] private float scoreUp = 0;
+    [SerializeField] private float scoreFront = 0;
 
-    public AudioSource destroySound;
+    [SerializeField] private AudioSource destroySound = null;
 
     public abstract void InteractionBad();
-
     public abstract void InteractionGood();
 
     public void Score(bool good, int value)
@@ -25,18 +24,32 @@ public abstract class Element : MonoBehaviour
     {
         if (destroySound != null) destroySound.Play();
         gameObject.GetComponent<Animator>().SetTrigger("destroy");
-        transform.parent.gameObject.GetComponent<Spawn>().MarkAsEmpty();
+        if (PhotonNetwork.IsMasterClient)
+            transform.parent.gameObject.GetComponent<Spawn>().MarkAsEmpty();
         Destroy(gameObject, delay);
     }
 
-    void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown("space") || Input.GetKey("space"))
+        Character c = other.gameObject.GetComponent<Character>();
+        if (c.Player)
         {
-            Character c = other.gameObject.GetComponent<Character>();
-            c.SetInteractionDirection(transform.position);
-            if (c.goodGuy) InteractionGood();
-            else InteractionBad();
+            if (Input.GetKeyDown("space") || Input.GetKey("space"))
+            {
+                c.SetInteractionDirection(transform.position);
+                if (c.GoodGuy) InteractionGood();
+                else InteractionBad();
+            }
+        }
+        else
+        {
+            Animator a = other.gameObject.GetComponent<Animator>();
+            if (a.GetBool("interact2"))
+            {
+                c.SetInteractionDirection(transform.position);
+                if (c.GoodGuy) InteractionGood();
+                else InteractionBad();
+            }
         }
     }
 }

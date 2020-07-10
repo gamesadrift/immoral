@@ -12,7 +12,6 @@ public class OneTimeElement : Element
     public float destroyTime;
     public int score;
 
-    // Start is called before the first frame update
     void Start()
     {
         time = 0;
@@ -20,7 +19,6 @@ public class OneTimeElement : Element
         activated = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (activated)

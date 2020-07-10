@@ -24,9 +24,7 @@ public class ProgressiveElement : Element
     public int score2;
     public int score3;
     public int scoreExtra;
-    
 
-    // Start is called before the first frame update
     void Start()
     {
         scoreTime = 0;
@@ -35,7 +33,6 @@ public class ProgressiveElement : Element
         createdObjects = new List<GameObject>(3);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (level != 0)

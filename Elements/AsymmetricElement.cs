@@ -17,7 +17,6 @@ public class AsymmetricElement : Element
     public int timedScore;
     public int destructionScore;
 
-    // Start is called before the first frame update
     void Start()
     {
         time = 0;
@@ -26,7 +25,6 @@ public class AsymmetricElement : Element
         activated = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (activated)
