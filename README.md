@@ -2,10 +2,31 @@
 
 ![Logo Games Adrift](/Images_Web/Games Adrift Logo.png)
 
-## (ES) Español:
+## (ES) Español
 
-(IM)MORAL es un juego competitivo, que puede parecer rápido y caótico al principio pero en el que, con estrategia se puede ganar cualquier partida.
+> (IM)MORAL es un juego competitivo, que puede parecer rápido y caótico al principio pero en el que, con estrategia se puede ganar cualquier partida.
+>
+> La temática del juego es la conservación de espacios, ya sean naturales o urbanos, en definitiva, ser un buen ciudadano y cuidar del medio ambiente. Para esto los jugadores pueden utilizar a Bernie, el buenazo y altruista héroe de esta historia que busca mantener todo en orden; o a Jonas que le persigue destruyendo todo lo que toca.
+>
+> En este repositorio se encuentran el código utilizado en nuestro juego.
 
-La temática del juego es la conservación de espacios, ya sean naturales o urbanos, en definitiva, ser un buen ciudadano y cuidar del medio ambiente. Para esto los jugadores pueden utilizar a Bernie, el buenazo y altruista héroe de esta historia que busca mantener todo en orden; o a Jonas que le persigue destruyendo todo lo que toca.
+### Controles
 
-En este repositorio se encuentran el código utilizado en nuestro juego.
+> #### Movimiento
+> Las teclas W, A, S y D nos mueven en el escenario hacia delante, izquierda, detrás y derecha respectivamente.
+
+> #### Interacción
+> La tecla barra espaciadora sirve, cuando estamos pegados a un objeto interactuable para ganar puntos del mismo.
+
+### Contacto
+
+> #### Itch.io
+> [gamesadrift](https://gamesadrift.itch.io/)
+> #### Twitter
+> [@GamesAdrift](https://twitter.com/GamesAdrift)
+> #### Instagram
+> [@gamesadrift](https://www.instagram.com/gamesadrift/)
+> #### YouTube
+> [Games Adrift](https://www.youtube.com/channel/UCRG2y9zJj4lvZebusqPuxQA)
+> #### Gmail
+> games.adrift@gmail.com
