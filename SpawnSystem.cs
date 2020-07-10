@@ -1,64 +1,69 @@
-﻿using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnSystem : MonoBehaviour
 {
-    float time;
-    List<Spawn> spawnpoints;
-    int numSpawnpoints;
+    [SerializeField] private GameObject[] models;
 
-    public GameObject[] models;
-    int numModels;
+    [SerializeField] private float securityDistance;
+    [SerializeField] private float maxDistanceDifference;
 
-    public GameObject player1;
-    public GameObject player2;
+    [SerializeField] private float fastInterval;
+    [SerializeField] private float normalInterval;
 
-    public float securityDistance;
-    public float maxDistanceDifference;
+    [SerializeField] private int minElements;
+    [SerializeField] private int maxElements;
 
-    public float fastInterval;
-    public float normalInterval;
+    [SerializeField] private bool randomRotation;
 
-    int numElements;
+    [SerializeField] private GameObject GoodGuy = null;
+    [SerializeField] private GameObject BadGuy = null;
 
-    public int minElements;
-    public int maxElements;
+    private GameLogic logic = null;
 
-    public bool randomRotation;
+    private float time;
+    private int numElements;
+    private int numModels;
 
-    // Start is called before the first frame update
+    private int numSpawnpoints;
+    private List<Spawn> spawnpoints;
+
     void Start()
     {
+        logic = GameObject.Find("GameLogic").GetComponent<GameLogic>();
+
         time = 0;
         numElements = 0;
         numModels = models.Length;
 
         Component[] components = GetComponentsInChildren(typeof(Spawn));
         numSpawnpoints = components.Length;
-        
+
         spawnpoints = new List<Spawn>(numSpawnpoints);
         foreach (Component c in components)
             spawnpoints.Add(c as Spawn);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        float interval = numElements < minElements ? fastInterval : normalInterval;
-        if(time > interval && numElements < maxElements)
+        if (PhotonNetwork.IsMasterClient && !logic.MatchEnded)
         {
-            
-            GameObject model = models[Random.Range(0, numModels)];
-            Spawn spawn = spawnpoints[Random.Range(0, numSpawnpoints)];
-            float d1 = Vector3.Distance(spawn.Position, player1.transform.position);
-            float d2 = Vector3.Distance(spawn.Position, player2.transform.position);
-            if (spawn.IsEmpty && d1 > securityDistance && d2 > securityDistance && Mathf.Abs(d1 - d2) <= maxDistanceDifference)
+            time += Time.deltaTime;
+            float interval = numElements < minElements ? fastInterval : normalInterval;
+            if (time > interval && numElements < maxElements)
             {
-                spawn.GenerateChild(model, randomRotation);
-                numElements++;
-                time = 0;
+                GameObject model = models[Random.Range(0, numModels)];
+                Spawn spawn = spawnpoints[Random.Range(0, numSpawnpoints)];
+                float d1 = Vector3.Distance(spawn.Position, GoodGuy.transform.position);
+                float d2 = Vector3.Distance(spawn.Position, BadGuy.transform.position);
+                if (spawn.IsEmpty && d1 > securityDistance && d2 > securityDistance && Mathf.Abs(d1 - d2) <= maxDistanceDifference)
+                {
+                    spawn.GenerateChild(model, randomRotation);
+                    numElements++;
+                    time = 0;
+                }
             }
         }
     }

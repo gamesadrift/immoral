@@ -1,66 +1,69 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
-public class Character : MonoBehaviour {
-
+public class Character : MonoBehaviour
+{
     Animator anim;
 
-    public bool player;
-    public bool goodGuy;
+    [SerializeField] public bool Player { get; set; }
+    [SerializeField] public bool GoodGuy { get; set; }
 
-    public float speedRun;
-    public float speedSprint;
-    public float sensitivity;
+    [SerializeField] private float speedRun;
+    [SerializeField] private float speedSprint;
+    [SerializeField] private float sensitivity;
 
-    float newH;
-    float newV;
-    Vector3 currentDirection;
+    private GameLogic logic;
 
-    float interactionTime;
-    bool interacting;
-    Vector3 interactionDirection;
+    private float newH;
+    private float newV;
+    private Vector3 currentDirection;
 
-    float potionTime;
-    float potionDuration;
-    bool potionActive;
+    private float interactionTime;
+    private Vector3 interactionDirection;
 
-    bool sprint;
+    private float potionTime;
+    private float potionDuration;
+    private bool potionActive;
+
+    private bool sprint;
+
     public bool DoubleMoral { get; private set; }
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         newH = 0;
         newV = 0;
         potionActive = false;
+
+        logic = GameObject.Find("GameLogic").GetComponent<GameLogic>();
     }
 
     void Update()
     {
-        if (player)
+        if (Player)
         {
             float h = 0;
             float v = 0;
 
-            if (interacting)
+            if (anim.GetBool("interact2"))
             {
                 interactionTime += Time.deltaTime;
 
                 if (interactionTime >= 1.2)
                 {
-                    interacting = false;
+                    anim.SetBool("interact2", false);
                     interactionDirection = Vector3.zero;
                 }
             }
-            else if (Input.GetKeyDown("space"))
+            else if (Input.GetKeyDown("space") && !logic.MatchEnded)
             {
-                interacting = true;
                 interactionTime = 0;
                 anim.SetFloat("speed", 0);
-                anim.SetTrigger("interact");
+                anim.SetBool("interact2", true);
                 gameObject.GetComponent<AudioSource>().PlayDelayed(0.35f);
             }
-            else
+            else if (!logic.MatchEnded)
             {
                 h = Input.GetAxis("Horizontal");
                 v = Input.GetAxis("Vertical");
@@ -84,7 +87,7 @@ public class Character : MonoBehaviour {
 
             if (direction != Vector3.zero)
             {
-                currentDirection = Vector3.Slerp(currentDirection, interacting ? interactionDirection : direction, Time.deltaTime * sensitivity);
+                currentDirection = Vector3.Slerp(currentDirection, anim.GetBool("interact2") ? interactionDirection : direction, Time.deltaTime * sensitivity);
 
                 transform.rotation = Quaternion.LookRotation(currentDirection);
                 if (interactionDirection == Vector3.zero) transform.position += currentDirection * (sprint ? speedSprint : speedRun) * Time.deltaTime;
@@ -94,7 +97,14 @@ public class Character : MonoBehaviour {
         }
         else
         {
-            //CONTROLES DEL OPONENTE (RED)
+            if (anim.GetBool("interact2"))
+            {
+                anim.Play("interact");
+
+                //anim.Play("interact 0");
+                gameObject.GetComponent<AudioSource>().PlayDelayed(0.35f);
+                anim.SetBool("interact2", false);
+            }
         }
 
         if (potionActive)

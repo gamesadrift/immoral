@@ -28,14 +28,14 @@ public class PlayerPicker : MonoBehaviour
             Instantiate(musicGood);
             camera.Follow = good.transform;
             camera.LookAt = good.transform;
-            good.player = true;
+            good.Player = true;
         }
         else
         {
             Instantiate(musicBad);
             camera.Follow = bad.transform;
             camera.LookAt = bad.transform;
-            bad.player = true;
+            bad.Player = true;
         }
     }
 

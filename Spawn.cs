@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,13 +15,7 @@ public class Spawn : MonoBehaviour
         Position = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void GenerateChild(Object element, bool randomRotation)
+    public void GenerateChild(GameObject element, bool randomRotation)
     {
         Quaternion rotation = transform.rotation;
         if (randomRotation)
@@ -30,8 +25,9 @@ public class Spawn : MonoBehaviour
             Vector3 forward = new Vector3(x, 0, z);
             rotation = Quaternion.LookRotation(forward, Vector3.up);
         }
-
-        Instantiate(element, transform.position, rotation, transform);
+        GameObject created = PhotonNetwork.InstantiateSceneObject(element.name, transform.position, rotation);
+        created.transform.parent = transform;
+        //Instantiate(element, transform.position, rotation, transform);
         IsEmpty = false;
     }
 

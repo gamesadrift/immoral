@@ -1,33 +1,38 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using UnityEngine;
 
-public class Score : MonoBehaviour
+public class Score : MonoBehaviour, IPunObservable
 {
-    public GameObject floatingText;
+    [SerializeField] private GameObject floatingText;
 
-    public int good;
-    public int bad;
+    [SerializeField] public int Good { get; set; }
+    [SerializeField] public int Bad { get; set; }
 
-    Character goodGuy;
-    Character badGuy;
+    private Character goodGuy = null;
+    private Character badGuy = null;
 
-    int factorGood;
-    int factorBad;
+    private GameLogic logic;
 
-    object lockGood = new object();
-    object lockBad = new object();
+    private int factorGood;
+    private int factorBad;
 
-    // Start is called before the first frame update
+    private object lockGood = new object();
+    private object lockBad = new object();
+
     void Start()
     {
-        good = 0;
-        bad = 0;
         goodGuy = GameObject.Find("GoodGuy").GetComponent<Character>();
         badGuy = GameObject.Find("BadGuy").GetComponent<Character>();
+
+        Good = 0;
+        Bad = 0;
+
         factorGood = 1;
         factorBad = 1;
+
+        logic = GameObject.Find("GameLogic").GetComponent<GameLogic>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         factorGood = goodGuy.DoubleMoral ? 2 : 1;
@@ -36,16 +41,24 @@ public class Score : MonoBehaviour
 
     public void GoodPoints(int value, Vector3 position)
     {
-        int score = value * factorGood;
-        ShowFloatingScore(true, score, position);
-        lock(lockGood) good += score;
+        if (!logic.MatchEnded)
+        {
+            int score = value * factorGood;
+            ShowFloatingScore(true, score, position);
+            if (PhotonNetwork.IsMasterClient)
+                lock (lockGood) Good += score;
+        }
     }
 
     public void BadPoints(int value, Vector3 position)
     {
-        int score = value * factorBad;
-        ShowFloatingScore(false, score, position);
-        lock (lockGood) bad += score;
+        if (!logic.MatchEnded)
+        {
+            int score = value * factorBad;
+            ShowFloatingScore(false, score, position);
+            if (PhotonNetwork.IsMasterClient)
+                lock (lockBad) Bad += score;
+        }
     }
 
     void ShowFloatingScore(bool good, int value, Vector3 position)
@@ -63,6 +76,20 @@ public class Score : MonoBehaviour
         {
             mesh.color = ft.badColor;
             ft.badSound.Play();
-        }   
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(Good);
+            stream.SendNext(Bad);
+        }
+        else
+        {
+            Good = (int)stream.ReceiveNext();
+            Bad = (int)stream.ReceiveNext();
+        }
     }
 }
