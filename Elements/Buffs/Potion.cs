@@ -9,16 +9,14 @@ public class Potion : Element
 
     bool used;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         used = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        // Nothing
     }
 
     void OnTriggerEnter(Collider other)
