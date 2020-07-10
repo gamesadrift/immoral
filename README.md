@@ -7,11 +7,11 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 
 ### Introducción
 
-> (IM)MORAL es un juego competitivo, que puede parecer rápido y caótico al principio pero en el que, con estrategia se puede ganar cualquier partida.
+> ***(IM)MORAL*** es un juego ***competitivo***, que puede parecer ***rápido*** y ***caótico*** al principio pero en el que, con ***estrategia***, se puede ganar cualquier partida.
 >
-> La temática del juego es la conservación de espacios, ya sean naturales o urbanos, en definitiva, ser un buen ciudadano y cuidar del medio ambiente. Para esto los jugadores pueden utilizar a Bernie, el buenazo y altruista héroe de esta historia que busca mantener todo en orden; o a Jonas que le persigue destruyendo todo lo que toca.
+> La temática del juego es la conservación de espacios, ya sean naturales o urbanos, en definitiva, ser un buen ciudadano y ***cuidar del medio ambiente***. Para esto los jugadores pueden utilizar a ***Bernie***, el buenazo y altruista héroe de esta historia que busca mantener todo en orden; o a ***Jonas*** que le persigue destruyendo todo lo que toca.
 >
-> En este repositorio se encuentran el código utilizado en nuestro juego (o puedes descargartelo de nuestro [itch.io](https://gamesadrift.itch.io/)).
+> En este repositorio se encuentran el código utilizado en nuestro juego (o puedes descargartelo de nuestro [***itch.io***](https://gamesadrift.itch.io/)).
 
 ### Controles
 
