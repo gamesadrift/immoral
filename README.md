@@ -11,7 +11,7 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 >
 > La temática del juego es la conservación de espacios, ya sean naturales o urbanos, en definitiva, ser un buen ciudadano y **cuidar del medio ambiente**. Para esto los jugadores pueden utilizar a **Bernie**, el buenazo y altruista héroe de esta historia que busca mantener todo en orden; o a **Jonas** que le persigue destruyendo todo lo que toca.
 >
-> En este repositorio se encuentran el código utilizado en nuestro juego (o puedes descargartelo de nuestro [**itch.io**](https://gamesadrift.itch.io/)).
+> En este repositorio se encuentran el código utilizado en nuestro juego (o puedes descargartelo de nuestro [**itch.io**](https://gamesadrift.itch.io/immoral)).
 
 ### Objetivo
 
@@ -63,7 +63,7 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 ### Contacto
 
 > #### Itch.io
-> [gamesadrift](https://gamesadrift.itch.io/)
+> [gamesadrift](https://gamesadrift.itch.io/immoral)
 > #### Twitter
 > [@GamesAdrift](https://twitter.com/GamesAdrift)
 > #### Instagram
