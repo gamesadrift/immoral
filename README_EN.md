@@ -22,27 +22,39 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 ### Controls
 
 > #### Movement
-> The W, A, S and D keys move us on stage forward, left, back and right respectively.
+> The **W**, **A**, **S** and **D** keys move us on stage forward, left, back and right respectively.
 
 > #### Interact
-> The space bar is useful when we are close to an interactive object, to earn points from it (see the elements).
+> The **spacebar** is used when we are close to an interactive object, to earn points from it (see the elements).
+
+![WASD Keys](/Images_Web/wasd.png)
 
 ### Objects
 
 > #### Elements
-> - Asymmetric: a player can activate it to earn points over time, but if activated the opponent can destroy it to earn points.
-> - Progressive: if a player activates it, begins to level up and generate points (according to the level), but if the opponent interacts with it, the other returns to the first level and the other begins to earn points. If it reaches the maximum level it gives a lot of points and disappears.
-> - OneTime: it can only be activated once, the one that activates it first will get points.
-> - Reversible: it starts from one side, if the other activates it, it earns points but changes sides, it gives less and less until it disappears.
+> - **Asymmetric**: a player can activate it to earn points over time, but if activated the opponent can destroy it to earn points.
+> - **Progressive**: if a player activates it, begins to level up and generate points (according to the level), but if the opponent interacts with it, the other returns to the first level and the other begins to earn points. If it reaches the maximum level it gives a lot of points and disappears.
+> - **OneTime**: it can only be activated once, the one that activates it first will get points.
+> - **Reversible**: it starts from one side, if the other activates it, it earns points but changes sides, it gives less and less until it disappears.
 
 > #### Examples (Forest)
-> - Asymmetric: the bonfire is activated by Jonas, but Bernie can destroy it if it is lit.
-> - Progressive: the tree generates more and more fruit if activated by Bernie or burns more and more if activated by Jonas.
-> - OneTime: flowers can be watered by Bernie or burned by Jonas.
-> - Reversible: garbage can be collected (inside the container) if Bernie has touched it or scattered if Jonas has done it.
+> - **Asymmetric**: the bonfire is activated by Jonas, but Bernie can destroy it if it is lit.
+> - **Progressive**: the tree generates more and more fruit if activated by Bernie or burns more and more if activated by Jonas.
+> - **OneTime**: flowers can be watered by Bernie or burned by Jonas.
+> - **Reversible**: garbage can be collected (inside the container) if Bernie has touched it or scattered if Jonas has done it.
 
 > #### Potions
-> There are currently two: yellow to run and blue to earn double points for a while.
+> There are currently two: **yellow** to run and **blue** to earn double points for a while.
+
+![Bench(Reversible)](/Images_Web/RRSS_Bench.jpg)
+
+### Tools and more
+
+> The game is developed purely in **Unity** and **C#**. What is found here is just the code of the same, there are parts that require knowledge of how Unity works or the possibilities it gives when associating elements from the editor, etc. If it is for learning we are open to questions, within our capacity.
+>
+> The game is **multiplayer** and **PUN** (Photon Unity Network, from Photon 2) has been used for this. You can also ask us questions about this.
+
+![Unity, C# and Photon (Cloud) Logo](/Images_Web/logos.png)
 
 ### Code
 
