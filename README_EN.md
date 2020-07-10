@@ -11,7 +11,7 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 >
 > The theme of the game is the conservation of spaces, whether natural or urban, in short, being a good citizen and ***taking care of the environment***. For this, the players can use ***Bernie***, the good-natured and altruistic hero of this story who seeks to keep everything in order; or ***Jonas*** who follows him, destroying everything he touches.
 >
-> In this repository are the scripts used in our game (or you can download it from our [***itch.io***](https://gamesadrift.itch.io/)).
+> In this repository are the scripts used in our game (or you can download it from our [***itch.io***](https://gamesadrift.itch.io/immoral)).
 
 ### Goal
 
@@ -63,7 +63,7 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 ### Contact
 
 > #### Itch.io
-> [gamesadrift](https://gamesadrift.itch.io/)
+> [gamesadrift](https://gamesadrift.itch.io/immoral)
 > #### Twitter
 > [@GamesAdrift](https://twitter.com/GamesAdrift)
 > #### Instagram
