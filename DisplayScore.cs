@@ -3,33 +3,38 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 
+// Clase para mostrar las puntuaciones.
 public class DisplayScore : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI GoodGuy = null;
-    [SerializeField] private TextMeshProUGUI GoodScore = null;
-    [SerializeField] private TextMeshProUGUI BadGuy = null;
-    [SerializeField] private TextMeshProUGUI BadScore = null;
-    [SerializeField] private Score score = null;
+    // Campos a rellenar.
+    [SerializeField] private TextMeshProUGUI GoodGuy = null;    // Izq. Top
+    [SerializeField] private TextMeshProUGUI GoodScore = null;  // Izq. Debajo 
+    [SerializeField] private TextMeshProUGUI BadGuy = null;     // Der. Top
+    [SerializeField] private TextMeshProUGUI BadScore = null;   // Der. Debajo
 
-    [SerializeField] public string GoodGuyName { get; set; }
-    [SerializeField] public string BadGuyName { get; set; }
+    // Objeto con la puntuación.
+    [SerializeField] private Score score = null;
 
     void Start()
     {
+        // Para cada jugador:
         foreach(Player p in PhotonNetwork.PlayerList)
         {
-            if((string)p.CustomProperties["team"] == "good")
+            // Si es Bernie pone su nombre a la izquierda.
+            if ((string)p.CustomProperties["team"] == "good")
                 GoodGuy.text = p.NickName;
-            else
-                BadGuy.text = p.NickName;
+            // Si es Jonas lo pone a la derecha.
+            else BadGuy.text = p.NickName;
         }
 
+        // Pone las puntuaciones en sus respectivos campos.
         GoodScore.text = score.Good.ToString();
         BadScore.text = score.Bad.ToString();
     }
 
     void Update()
     {
+        // Actualiza las puntuaciones cada frame.
         GoodScore.text = score.Good.ToString();
         BadScore.text = score.Bad.ToString();
     }
