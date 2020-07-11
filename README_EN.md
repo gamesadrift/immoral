@@ -27,6 +27,9 @@ This is the English page. But we also have one in [Spanish](https://gamesadrift.
 > #### Interact
 > The **spacebar** is used when we are close to an interactive object, to earn points from it (see the elements).
 
+> #### Exit
+> While in game **escape** shows a menu that allows you to go back to the main one.
+
 ![WASD Keys](/Images_Web/wasd.png)
 
 ### Objects
