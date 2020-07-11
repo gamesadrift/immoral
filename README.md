@@ -27,6 +27,9 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 > #### Interacción
 > La tecla **barra espaciadora** sirve, cuando estamos pegados a un objeto interactuable, para ganar puntos del mismo (ver elementos).
 
+> #### Salir
+> Al pulsar **escape**, en partida, aparece un menú que te permite volver a la pantalla principal.
+
 ![Teclas WASD](/Images_Web/wasd.png)
 
 ### Objetos
@@ -38,7 +41,7 @@ Esta es la página en español. ¡Pero tenemos otra en [inglés](https://gamesad
 > - **Reversible**: empieza de un bando, si lo activa el otro gana puntos pero cambia de bando, cada vez da menos hasta que desaparece.
 
 > #### Ejemplos (Bosque)
-> - **Asimétrico**: la hoguera la activa el Jonas, pero Bernie puede destruirla si está encendida.
+> - **Asimétrico**: la hoguera la activa Jonas, pero Bernie puede destruirla si está encendida.
 > - **Progresivo**: el árbol genera cada vez más fruta si lo activa Bernie o se quema cada vez más si lo activa Jonas.
 > - ***OneTime***: las flores pueden ser regadas por Bernie o quemadas por Jonas.
 > - **Reversible**: la basura puede estar recogida (dentro del contenedor) si lo ha tocado Bernie o esparcida si lo ha tocado Jonas.
